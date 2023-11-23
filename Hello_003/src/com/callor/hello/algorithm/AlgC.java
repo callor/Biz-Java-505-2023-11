@@ -20,6 +20,13 @@ public class AlgC {
 		if(bYes) {
 			System.out.println("짝수");
 		}
+		
+		if(num1 % 2 == 0) {
+			System.out.println("짝수");
+		}
+		
+		
+		
 	}
 
 }
