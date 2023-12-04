@@ -17,17 +17,37 @@ public class ScoreA {
 		ScoreService 영희성적 = new ScoreService();
 		ScoreService 민수성적 = new ScoreService();
 		
-		
 		철수성적.scoreKor = 90;
 		철수성적.scoreEng = 80;
+		철수성적.scoreMath = 70;
 		
 		영희성적.scoreKor = 70;
 		영희성적.scoreEng = 100;
+		영희성적.scoreMath = 80;
 		
 		민수성적.scoreKor = 80;
 		민수성적.scoreEng = 90;
+		민수성적.scoreMath = 100;
 		
-		System.out.println(철수성적.scoreKor + 철수성적.scoreEng);
+		System.out.println(철수성적.scoreKor 
+				+ 철수성적.scoreEng 
+				+ 철수성적.scoreMath
+				);
+		
+		System.out.println(철수성적.getScoreTotal());
+		System.out.println(영희성적.getScoreTotal());
+		System.out.println(민수성적.getScoreTotal());
+		
+		// 클래스와 객체를 알기전에 평균을 구해야 한다면
+		System.out.println((float)철수성적.getScoreTotal() / 3);
+		System.out.println((float)영희성적.getScoreTotal() / 3);
+		System.out.println((float)민수성적.getScoreTotal() / 3);
+		
+		// 클래스와 객체를 알고 난 후에는
+		// 1. 클래스에 평균을 계산하는 method 를 만들고(선언하고)
+		System.out.println(철수성적.getScoreAvg());
+		System.out.println(영희성적.getScoreAvg());
+		System.out.println(민수성적.getScoreAvg());
 				
 		
 	}
