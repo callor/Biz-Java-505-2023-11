@@ -6,9 +6,13 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 import com.callor.score.model.ScoreDto;
+import com.callor.score.utils.Line;
 
-public class ScoreService {
+public class ScoreServiceA {
 	
+	// 변수의 scope 가 class 영역이다
+	// 이 변수는 ScoreService 클래스의 소유이다
+	// class 영역에는 여러가지 method 들이 있다
 	private ScoreDto[] scores = null; 
 	private Scanner scan = null;
 
@@ -23,7 +27,7 @@ public class ScoreService {
 	 * 보통은 비어있는(blank) 코드가 자동으로 생성되지만
 	 * 필요에 따라 변수, 객체 등을 만드는 코드를 추가할 수 있다
 	 */
-	public ScoreService() {
+	public ScoreServiceA() {
 		String dataFile = "src/com/callor/score/service/data.txt";
 		InputStream is = null;
 		try {
@@ -63,9 +67,48 @@ public class ScoreService {
 		}
 	} // end loadScores()
 	
+	/*
+	 * loadScores() method 가 data.txt 파일에서 
+	 * 학생의 성적data 를 읽어서, scores 배열에 저장해둔 상태
+	 * scores 배열에 저장된 데이터를 화면에 성적표로 출력하기
+	 */
 	public void printScores() {
 		
-	}
+		Line.dLine(100);
+		System.out.println("학번\t국어\t영어\t수학\t음악\t미술\tSW공학\tDB\t총점\t평균");
+		Line.sLine(100);
+		
+		/*
+		 * scores 의 type 이 무엇인가?
+		 * scores 라는 배열을 선언할때 어떤 명령(도구)를 사용하여
+		 * 선언했는가?
+		 * ScoreDto[] 를 사용하여 score 를 선언했다
+		 * = "scores 는 ScoreDto 배열 type 이다"
+		 * scores[index] 의 type 은 무엇인가
+		 * scores 배열의 개별 요소의 type 이 무엇인가? 
+		 * scores 개별 요소의 type ScoreDto
+		 */
+		for(int i = 0 ; i < scores.length ; i++) {
+			ScoreDto scoreDto = scores[i];
+			
+			System.out.printf("%s\t",scores[i].stdNum);
+			
+			System.out.printf("%3d\t",scoreDto.kor);
+			System.out.printf("%3d\t",scoreDto.eng);
+			System.out.printf("%3d\t",scoreDto.math);
+			System.out.printf("%3d\t",scoreDto.music);
+			System.out.printf("%3d\t",scoreDto.art);
+			System.out.printf("%3d\t",scoreDto.sw);
+			System.out.printf("%3d\t",scoreDto.db);
+			
+			System.out.printf("%3d\t",scoreDto.getTotal());
+			System.out.printf("%5.2f\n",scoreDto.getAvg());
+		}
+		Line.dLine(100);
+		
+		
+		
+	} // end printScore()
 	
 	
 
