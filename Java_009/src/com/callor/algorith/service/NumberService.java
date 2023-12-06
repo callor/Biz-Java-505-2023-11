@@ -2,7 +2,9 @@ package com.callor.algorith.service;
 
 import java.util.Scanner;
 
-public class KeyInputService {
+import com.callor.algorith.utils.Line;
+
+public class NumberService {
 
 	/*
 	 * 현재 클래스의 여러 method에서 Scanner 를 사용하여
@@ -23,21 +25,33 @@ public class KeyInputService {
 	 * scan 초기화 코드를 작성해야 한다.
 	 */
 	private Scanner scan = null;
-	public KeyInputService() {
+	public NumberService() {
 		scan = new Scanner(System.in);
 	}
 	
 	public int inputNum(String title) {
-		
-		System.out.print(title + " 입력해 주세요");
-		String str = scan.nextLine();
-		int num = 0;
-		try {
-			num = Integer.valueOf(str);
-		} catch (Exception e) {
-			System.err.println("** 정수를 정확히 입력해 주세요");
+		while(true) {
+			System.out.print(title + " 입력해 주세요 >> ");
+			String str = scan.nextLine();
+			int num = 0;
+			try {
+				num = Integer.valueOf(str);
+			} catch (Exception e) {
+				System.err.println("** 정수를 정확히 입력해 주세요");
+				continue;
+			}
+			return num;
 		}
-		return num;
 	}
-
+	
+	public void printAlgebra(int num1, int num2) {
+		Line.sLine(50);
+		System.out.printf("%d + %d = %d\n",num1, num2, num1 + num2);
+		System.out.printf("%d - %d = %d\n",num1, num2, num1 - num2);
+		System.out.printf("%d x %d = %d\n",num1, num2, num1 * num2);
+		System.out.printf("%d ÷ %d = %d\n",num1, num2, num1 / num2);
+		
+		System.out.printf("%d MOD %d = %d\n",num1, num2, num1 % num2);
+		Line.dLine(50);
+	}
 }
