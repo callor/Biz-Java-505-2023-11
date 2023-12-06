@@ -2,7 +2,7 @@ package com.callor.algorith.exec;
 
 import com.callor.algorith.service.NumberService;
 
-public class ScannrBC {
+public class ScannerBC {
 	
 	public static void main(String[] args) {
 		NumberService keyService = new NumberService();

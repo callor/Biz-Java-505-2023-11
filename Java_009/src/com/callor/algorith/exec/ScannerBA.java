@@ -2,7 +2,7 @@ package com.callor.algorith.exec;
 
 import java.util.Scanner;
 
-public class ScannrBA {
+public class ScannerBA {
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
