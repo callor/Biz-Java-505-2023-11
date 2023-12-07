@@ -33,7 +33,24 @@ public class ScoreDto {
 	public int sw;
 	public int db;
 	
-	int total;
-	float avg;
+	private int total;
+	private float avg;
+	
+	public int getTotal() {
+		total = kor;
+		total += eng;
+		total += math;
+		total += music;
+		total += art;
+		total += sw;
+		total += db;
+		return total;
+	}
+	
+	public float getAvg() {
+		getTotal();
+		avg = (float)total / 7;
+		return avg;
+	}
 	
 }
