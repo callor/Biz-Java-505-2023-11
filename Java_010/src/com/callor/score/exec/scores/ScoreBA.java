@@ -1,4 +1,4 @@
-package com.callor.score.exec;
+package com.callor.score.exec.scores;
 
 // 도구 import Ctrl+Shift+O
 import com.callor.score.model.ScoreDto;
