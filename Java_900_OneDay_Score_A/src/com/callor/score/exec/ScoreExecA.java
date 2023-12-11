@@ -1,16 +1,16 @@
 package com.callor.score.exec;
 
-import com.callor.score.service.ScoreService;
+import com.callor.score.service.ScoreServiceV1;
 
 public class ScoreExecA {
 	
 	public static void main(String[] args) {
-		ScoreService scoreService = new ScoreService();
+		ScoreServiceV1 scoreService = new ScoreServiceV1();
 		scoreService.makeScore(10);
+		scoreService.printScore();
 
-		ScoreService scoreService1 = new ScoreService();
+		ScoreServiceV1 scoreService1 = new ScoreServiceV1();
 		scoreService1.makeScore(10);
-
 		
 		// 잠시 멈춘상태
 	}
