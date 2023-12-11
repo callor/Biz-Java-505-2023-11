@@ -3,6 +3,7 @@ package com.callor.score.service;
 import java.util.ArrayList;
 
 import com.callor.score.models.ScoreDto;
+import com.callor.score.utils.Line;
 
 public class ScoreServiceV2 extends ScoreServiceV1 {
 	
@@ -43,10 +44,12 @@ public class ScoreServiceV2 extends ScoreServiceV1 {
 		float allAvg = 0;
 		System.out.print("평균\t");
 		for(int score : totalScore) {
-			System.out.printf("%.1f\t",
-					(float)score / scores.size());
+			float avg = (float)score / scores.size();
+			System.out.printf("%.1f\t",avg);
+			allAvg += avg;
 		}
-		
+		System.out.printf("\t%.2f\n",allAvg / totalScore.length);
+		Line.dLine(100);
 		
 	}
 
