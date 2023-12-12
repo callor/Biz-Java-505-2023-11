@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.callor.student.models.StudentDto;
+import com.callor.student.utils.Line;
 
 /*
  * 키보드를 통해서 학생정보를 입력받고
@@ -48,20 +49,42 @@ public class StudentServiceV3A {
 
 	}
 
+	/*
+	 * 학번을 매개변수로 전달받아
+	 * students 리스트에서 검색하여
+	 * 일치하는 학생정보가 있으면 
+	 * 그 정보를 통째로(dto)로 return
+	 */
+	private StudentDto selectStdNum(String num) {
+		/*
+		 * students 는 List type 이다 students 의 요소는 StudentDto type 이다 이 명령은 students 리스트
+		 * 개수만큼 반복하라 반복하면서 students 리스트의 개별 요소를 get(읽기) 하여 StudentDto type 인 dto 에 할당하여
+		 * 코드블럭({})에 전달하라
+		 */
+		for(StudentDto dto : students) {
+			if(dto.num.equals(num)) return dto;
+		}
+		return null;
+	}
+	
+	
 	// 한 학생의 정보를 입력받는 method
 	public boolean inputStudent() {
 
 		StudentDto stdDto = new StudentDto();
 		while (true) {
 			stdDto.num = this.itemInput("학번");
-			if (stdDto.num == null)
-				return false;
-
-			for (StudentDto dto : students) {
-				if (dto.num.equals(stdDto.num)) {
-					System.out.println("*** 학번 중복");
-					continue;
-				}
+			if (stdDto.num == null) return false;
+			
+			// selectStdNum() method 에 학번을 보내고
+			// return 값을 받아서
+			// 결과 null 이 아니면 중복임을 판단하기
+			
+			// if(this.selectStdNum(stdDto.num) != null) {
+			StudentDto dto = this.selectStdNum(stdDto.num);
+			if(dto != null) {
+				System.out.println("** 학번 중복");
+				continue;
 			}
 			break;
 		}
@@ -101,6 +124,26 @@ public class StudentServiceV3A {
 			}
 		}
 		System.out.println("업무 종료@@");
+	} // end inputStudents()
+	
+	public void printStudent() {
+		Line.dLine(100);
+		System.out.println("한울 고교 학생정보");
+		Line.dLine(100);
+		System.out.println("학번\t이름\t학과\t학년\t전화번호\t주소");
+		Line.sLine(100);
+		for(StudentDto dto : students) {
+			System.out.print(dto.num + "\t");
+			System.out.print(dto.name + "\t");
+			System.out.print(dto.dept + "\t");
+			System.out.print(dto.grade + "\t");
+			System.out.print(dto.tel + "\t");
+			System.out.print(dto.addr + "\n");
+		}
+		Line.dLine(100);
+		
+		
+		
 	}
 
 }
