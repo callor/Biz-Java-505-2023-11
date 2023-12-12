@@ -1,5 +1,8 @@
 package com.callor.student.service;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -141,9 +144,41 @@ public class StudentServiceV3A {
 			System.out.print(dto.addr + "\n");
 		}
 		Line.dLine(100);
+	} // printStudent()
+	
+	public void loadStudent() {
+		String stFile = "src/com/callor/student/models/student.txt";
 		
+		InputStream is = null;
+		Scanner fileScan = null;
 		
+		try {
+			is = new FileInputStream(stFile);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		fileScan = new Scanner(is);
+		
+		while(fileScan.hasNext()) {
+			String line = fileScan.nextLine();
+			String[] stds = line.split(",");
+			StudentDto stDto = new StudentDto();
+			
+			stDto.num =  stds[0];
+			stDto.name =  stds[1];
+			stDto.dept =  stds[2];
+			stDto.grade =  stds[3];
+			stDto.tel =  stds[4];
+			stDto.addr =  stds[5];
+			students.add(stDto);
+		}
+		fileScan.close();
+
 		
 	}
+	
+	
+	
 
 }
