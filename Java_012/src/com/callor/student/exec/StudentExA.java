@@ -7,7 +7,7 @@ import java.util.Vector;
 
 import com.callor.student.service.StudentService;
 import com.callor.student.service.impl.StudentServiceImplV1;
-import com.callor.student.service.impl.StudentServiceimplV2;
+import com.callor.student.service.impl.StudentServiceImplV2;
 
 public class StudentExA {
 	
@@ -22,7 +22,7 @@ public class StudentExA {
 		nums = new Vector<Integer>();
 		
 		stService = new StudentServiceImplV1();
-		stService = new StudentServiceimplV2();
+		stService = new StudentServiceImplV2();
 		
 		
 		

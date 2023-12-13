@@ -2,7 +2,7 @@ package com.callor.student.service.impl;
 
 import com.callor.student.service.StudentService;
 
-public class StudentServiceimplV2 implements StudentService{
+public class StudentServiceImplV2 implements StudentService{
 
 	@Override
 	public boolean inputStudent() {
