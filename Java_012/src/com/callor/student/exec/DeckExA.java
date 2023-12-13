@@ -34,12 +34,24 @@ public class DeckExA {
 				deckList.add(dto);
 			}
 		}
-		for(PlayingCardDto dto : deckList) {
-			// System.out.println(dto.suit + dto.denomination + "," + dto.value);
-			for(String pattern : dto.getPattern()) {
-				System.out.println(pattern);
+//		for(PlayingCardDto dto : deckList) {
+//			// System.out.println(dto.suit + dto.denomination + "," + dto.value);
+//			for(String pattern : dto.getPattern()) {
+//				System.out.println(pattern);
+//			}
+//		}
+
+		int cardLines = deckList.get(0).getPattern().length;
+		for(int line = 0 ; line < cardLines ; line ++) {
+			for(PlayingCardDto dto : deckList) {
+				System.out.printf("%10s",dto.getPattern()[line]);
 			}
+			System.out.println();
 		}
+				
+	
+
+		
 		
 	}
 	
