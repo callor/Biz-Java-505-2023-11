@@ -119,7 +119,7 @@ public class StudentServiceImplV1 implements StudentService {
 			System.out.printf("%s\t",dto.dept);
 			System.out.printf("%s\t",dto.grade);
 			System.out.printf("%s\t",dto.tel);
-			System.out.printf("%s\t",dto.addr);
+			System.out.printf("%s\n",dto.addr);
 		}
 		Line.dLine(100);
 	}
