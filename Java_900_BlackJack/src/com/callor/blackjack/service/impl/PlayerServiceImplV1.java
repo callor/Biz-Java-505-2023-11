@@ -8,9 +8,20 @@ import com.callor.blackjack.service.PlayerService;
 
 public class PlayerServiceImplV1  implements PlayerService{
 
-	private List<CardDto> myCardList = null;
+	protected List<CardDto> myCardList = null;
+	protected String playerName = "";
+
+	/*
+	 * PlayerService 딜러 = new PlayerServiceImplV1() 처럼 생성하면
+	 * 		playerName 에 "딜러"라는 값을 할당하라
+	 */
 	public PlayerServiceImplV1() {
+		// new PlayerServiceImplV1("딜러") 처럼 호출하기
+		this("딜러");
+	}
+	public PlayerServiceImplV1(String playerName) {
 		myCardList = new ArrayList<CardDto>();
+		this.playerName = playerName;
 	}
 	
 	@Override
@@ -21,7 +32,9 @@ public class PlayerServiceImplV1  implements PlayerService{
 	@Override
 	public void showCard() {
 		for(CardDto dto : myCardList) {
-			System.out.println(dto.toString());
+			for(String p : dto.getPatterns()) {
+				System.out.println(p);
+			}
 		}
 	}
 
