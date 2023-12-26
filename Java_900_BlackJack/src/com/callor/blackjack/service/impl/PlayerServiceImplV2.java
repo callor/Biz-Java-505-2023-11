@@ -1,6 +1,7 @@
 package com.callor.blackjack.service.impl;
 
 import com.callor.blackjack.models.CardDto;
+import com.callor.blackjack.utils.AnsiConsol;
 import com.callor.blackjack.utils.Line;
 
 public class PlayerServiceImplV2  extends PlayerServiceImplV1{
@@ -33,9 +34,12 @@ public class PlayerServiceImplV2  extends PlayerServiceImplV1{
 			for(CardDto dto : myCardList) {
 				
 				// String line = dto.getPatterns()[lines];
-				String line = dto.getPattern(lines);
-				System.out.printf("%10s",line);
-				
+				String line = String.format("%10s",dto.getPattern(lines));
+				if("◆♣".contains(dto.suit)) {
+					System.out.print(AnsiConsol.RED(line));
+				} else {
+					System.out.print(AnsiConsol.CYAN(line));
+				}
 			}
 			System.out.println();
 		}

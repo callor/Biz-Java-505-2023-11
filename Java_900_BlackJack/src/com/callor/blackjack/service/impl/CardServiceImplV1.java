@@ -52,7 +52,10 @@ public class CardServiceImplV1 implements CardService{
 					if(deno.equals("A")) value = 1;
 					else value = 10;
 				}
-				if(value < 1) value = 10;
+				if(value < 1) {
+					value = 10;
+					cardDto.denomiation = "10";
+				}
 				cardDto.value = value;
 				cardList.add(cardDto);
 			} // for deno

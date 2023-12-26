@@ -29,10 +29,9 @@ public class CardDto extends Object{
 		String[] patterns = {
 			String.format("┌─────────┐"),
 			String.format("│         │"),
-			String.format("│   %1s     │",this.suit ),
+			String.format("│   %1s     │",this.suit),
 			String.format("│         │"),
-			String.format("│         │"),
-			String.format("│   %2d    │",this.value),
+			String.format("│   %2s    │",this.denomiation),
 			String.format("│         │"),
 			String.format("└─────────┘")
 		};
